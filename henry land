@@ -1,0 +1,57 @@
+#include <stdio.h>
+
+int main() {
+    float land_price_per_sqm = 0.0;
+    int land_size = 0;
+    int location_code = 0;
+    float total_price = 0.0;
+    float discount = 0.0;
+
+    printf("Welcome to Land Selling Program!\n");
+    printf("Enter the size of the land in square meters: ");
+    scanf("%d", &land_size);
+    
+    printf("1. Urban\n2. Suburban\n3. Rural\n");
+    printf("Enter the location for the land:");
+    scanf("%d", &location_code);
+    
+    
+    switch (location_code) {
+        case 1:
+            land_price_per_sqm = 4000.0;
+            printf("Urban land selected.\n");
+            printf("The land is located in muthaiga, narobi.\n");
+            break;
+        case 2:
+            land_price_per_sqm = 2500.0;
+            printf("Suburban land selected.\n");
+            printf("The land is located in whihoko, githurai.\n");
+            break;
+        case 3:
+            land_price_per_sqm = 1000.0;
+            printf("Rural land selected.\n");
+            printf("The land is located in matanga, murang'a.\n");
+            break;
+        default:
+            printf("Invalid location entered.\n");
+            return 1;
+    }
+
+    total_price = land_price_per_sqm * land_size;
+
+    if (total_price >= 500000) {
+        discount = 0.1 * total_price;
+        printf("Congratulations! You are eligible for a 10%% discount of %.2f.\n contact our agent for more information.\n", discount);
+    } else if (total_price >= 100000) {
+        discount = 0.05 * total_price;
+        printf("Congratulations! You are eligible for a 5%% discount of %.2f.\n contact our agent for more information. \n", discount);
+    } else {
+        printf("Sorry, you are not eligible for any discount.\n");
+    }
+
+    total_price -= discount;
+    printf("Total price for the land: %.2f\n", total_price);
+ 
+    printf("Agent contact: 0701234567 or 0707829132");
+    return 0;
+}
